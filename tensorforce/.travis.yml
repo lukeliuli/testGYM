@@ -1,0 +1,24 @@
+language: python
+python:
+  - "3.7"
+
+branches:
+  only:
+    - master
+
+before_install:
+  - sudo apt-get -y install swig
+
+install:
+  - pip install .[tfa,tune,ale,gym,retro]
+  - pip install pytest
+
+script:
+  - pytest
+
+notifications:
+  email:
+    recipients:
+      - tensorforce.team@gmail.com
+    on_success: never
+    on_failure: always

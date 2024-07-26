@@ -1,0 +1,8 @@
+m2r
+mistune == 2.0.3  # temporary
+msgpack
+msgpack-numpy
+recommonmark
+sphinx
+sphinx-rtd-theme
+tensorflow
