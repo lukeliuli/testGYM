@@ -125,8 +125,8 @@ while True:
         template = "在第 {} 轮游戏中获得奖励: {:.2f} 分"
         print(template.format(episode_count, running_reward))
 
-    if episode_count > 1000:  # 
-        print("episode_count > 1000 ，训练结束")
+    if episode_count > 10000:  # 
+        print("episode_count > 10000 ，训练结束")
         break
         
     if max(max_reward,running_reward) > max_reward:
@@ -183,7 +183,7 @@ with imageio.get_writer('./veh2CrashEnv_tensor23py36Gpu.gif', mode='I',fps =2) a
         title = "step:{},time:{:.2f}".format(step,step*0.1)
         plt.title(title)
         plt.savefig('./tmp_tensor23py36Gpu.jpg')
-        img_array = imageio.imread('./tmp_tensor23py36Gpu.jpg')
+        img_array = imageio.v2.imread('./tmp_tensor23py36Gpu.jpg')
         #print(img_array.shape)
         #frames.append(img_array)
         writer.append_data(img_array)

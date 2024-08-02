@@ -1,7 +1,12 @@
 ## testGYM
-1. testGYM.ipynb,用于测试GYM和加强算法,
-2. testTensorforce1.py的测试tensorforce算法
-3. Veh2CrashEnv.py,自定义GYM环境
+1. testGYM.ipynb,用于测试GYM和加强算法,所有程序的主入口，实现+环境的细节描述
+2. testTensorforce1.py,testTensorforce2.py,testTensorforce3.py(主要)的测试tensorforce算法，conda环境为tensorforcc
+3. test4_GymVeh2Gpu.py 为tensorflow-keras+自定义gym-Veh2Crash+GPU能用，conda环境tensor23py36gpu
+4. test5_torchGymVeh2Gpu.py，为pytorch+stable_baselines3+自定义gym-Veh2Crash+GPU，conda,conda环境torch24PY38Gpu
+5. Veh2CrashEnv+????????.py,自定义GYM环境的主程序文件
+6. gym_example 为test5_torchGymVeh2Gpu的gym环境的主文件
+6. 现阶段最好的最好的结果test5_torchGymVeh2Gpu，模型文件为a2c_Veh2CrashEnv-v1-best.zip，结果文件为veh2CrashEnv_pytorchGPU-best.gif
+
 ## 注意1
 1. 大量的自有代码已经设计加强算法
 + Hierarchical-Actor-Critc-HAC-

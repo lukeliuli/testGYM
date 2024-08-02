@@ -109,7 +109,7 @@ class Veh2CrashEnv(gym.Env):
         reward = v1_action+v2_action
         dist = np.sqrt((v1_xpos -v2_xpos)*(v1_xpos -v2_xpos)+(v1_ypos -v2_ypos)*(v1_ypos -v2_ypos))
         #reward = reward+(math.tanh(2*(dist-7))-1)
-        reward = reward+2*math.tanh(v1_xpos/20)+2*math.tanh(v2_xpos/20)+2*math.tanh(v2_ypos/6.5)
+        reward = 2*reward+math.tanh(v1_xpos/20)+math.tanh(v2_xpos/20)+math.tanh(v2_ypos/6.5)
        
         if dist <7:
             terminated = 1

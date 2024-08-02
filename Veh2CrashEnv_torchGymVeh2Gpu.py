@@ -2,8 +2,8 @@ import numpy as np
 import math
 import gym
 from gym import spaces
-import matplotlib.pyplot as plt
-import imageio
+
+
 class Veh2CrashEnv(gym.Env):
 
     def __init__(self):
@@ -109,12 +109,10 @@ class Veh2CrashEnv(gym.Env):
         reward = v1_action+v2_action
         dist = np.sqrt((v1_xpos -v2_xpos)*(v1_xpos -v2_xpos)+(v1_ypos -v2_ypos)*(v1_ypos -v2_ypos))
         #reward = reward+(math.tanh(2*(dist-7))-1)
-        #rewardGood1 = 2*reward+math.tanh(v1_xpos/20)+math.tanh(v2_xpos/20)+math.tanh(v2_ypos/6.5)
-        #rewardGood2 = 3*reward+math.tanh(v1_xpos/20)+math.tanh(v2_xpos/20)+math.tanh(v2_ypos/6.5)
-        reward = 4*reward+math.tanh(v1_xpos/20)+math.tanh(v2_xpos/20)+math.tanh(v2_ypos/6.5)
+        reward = 2*reward+math.tanh(v1_xpos/20)+math.tanh(v2_xpos/20)+math.tanh(v2_ypos/6.5)
       
         
-        if dist <7 or dist >20:
+        if dist <7:
             terminated = 1
             reward = -5
         
@@ -143,8 +141,9 @@ class Veh2CrashEnv(gym.Env):
        
         return np.array(self.envState), info
 
-    def reset(self):
-
+    def reset(self, seed=None, options=None):
+        super().reset(seed=seed)
+ 
 
         self.stepNum = 0
         self.runstate = "init"
@@ -159,7 +158,7 @@ class Veh2CrashEnv(gym.Env):
 
         info = {"runState":self.envState,"stepNum":self.stepNum,"Time":self.stepNum*self.deltaT}
         #print('states:{}'.format(np.round(self.envState,2)))
-        return np.array(self.envState)
+        return np.array(self.envState),info
 
     def render(self,mode):
         pass
